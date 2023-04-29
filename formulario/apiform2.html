@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API FORMS</title>
+</head>
+<style>
+    table{
+        text-align: center;
+        background-color: salmon;
+        width: 25%;
+        margin: auto;
+        border: 2px solid orangered;
+    }
+
+    td{
+        padding: 15px;
+    }
+</style>
+
+<script>
+
+var edad;
+
+function comenzar(){
+
+    edad=document.getElementById("miedad");
+    edad.addEventListener("change", cambia_rango, false);
+    document.datosUsu.addEventListener("invalid", validar, true);
+    document.getElementById("enviar").addEventListener("click", enviar, false);
+    document.datosUsu.addEventListener("input",validarTR,false);
+
+}
+
+function cambia_rango(){
+
+    var salida=document.getElementById("rango");
+    var calculo=edad.value-30;
+    if(calculo<30){
+        calculo=0;
+        edad.value=30;
+    }
+
+    salida.innerHTML=calculo+" a "+ edad.value;
+}
+
+function validar(e){
+
+    var elemento=e.target;
+    elemento.style.background="#FFDDDD";
+}
+
+function enviar(){
+
+    var cuadroUsu=document.getElementById("usuario");
+    var correcto=document.datosUsu.checkValidity();
+    if(correcto==true){
+        document.datosUsu.submit();
+    } else if (cuadroUsu.validity.valueMissing==true || cuadroUsu.validity.patternMissmatch) {
+        alert("El usuario no puede estar vacío y recuerda que debe tener 3 letras");
+    }
+}
+
+function validarTR(e){
+
+    var elemento=e.target;
+    if(elemento.validity.valid==true){
+        elemento.style.background="#FFFFFF";
+    } else {
+        elemento.style.background="#FFDDDD";
+    }
+}
+
+    window.addEventListener("load", comenzar, false);
+</script>
+
+<body>
+    
+    <section>
+        <form action="" name="datosUsu" method="get">
+            <table>
+                <tr><td>
+                Usuario:</td><td><input pattern="[A-Za-z]{3}" name="usuario" id="usuario" maxlength="10" required></td></tr>
+                <tr><td>
+                Email:</td><td><input type="email" name="miemail"id="miemail" required></td></tr>
+                <tr><td>
+                Edad:</td><td><input type="range" name="miedad" id="miedad" min="0" max="120" step="30" value="30"></td></tr>
+                <tr><td>
+                <output id="rango">0 a 30</output>
+                </td></tr>
+                <tr><td>
+                <input type="submit" id="enviar" value="Registrar"></td></tr>
+            </table>
+        </form>
+    </section>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Degradado radial</title>
+
+    <style>
+        section{
+            width: 500px;
+            margin: auto;
+        }
+    </style>
+
+    <script>
+        function comenzar(){
+            var elemento=document.getElementById("lienzo");
+            lienzo=elemento.getContext("2d");
+            
+            var degradado=lienzo.createRadialGradient(250,150,50,250,150,300);
+            // Posicion circulo 1, radio circulo 1, posición circulo 2, radio circulo 2
+            degradado.addColorStop(0, "#f80a0a");
+            degradado.addColorStop(1, "#09fe03");
+            lienzo.fillStyle=degradado;
+            lienzo.fillRect(0,0,500,300);
+        }
+
+        window.addEventListener("load", comenzar, false);
+
+    </script>
+
+</head>
+<body>
+
+    <section id="dibujo">
+        <canvas id="lienzo" width="500" height="300">
+            Su navegador no soporta canvas
+        </canvas>
+    </section>
+
+</body>
+</html>

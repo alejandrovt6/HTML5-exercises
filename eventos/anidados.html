@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        function eventos(){
+            var elemento1=document.getElementsByTagName("p")[0];
+            var elemento2=document.getElementsByTagName("img")[0];
+            elemento2.addEventListener("click",aviso2,false);
+            elemento1.addEventListener("click",aviso1,true);
+            //los TRUE se ejecutan antes que los FALSE
+        }
+
+        function aviso1(){
+            alert("Soy la imagen");
+        }
+        function aviso2(){
+            alert("Soy el párrafo");
+        }
+
+        window.addEventListener("load",eventos,false);
+
+    </script>
+
+</head>
+
+<body>
+    <p><img src="img/1.jpg"></p>
+</body>
+
+</html>

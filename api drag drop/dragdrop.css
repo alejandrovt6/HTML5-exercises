@@ -1,0 +1,17 @@
+
+#cajaimagen {
+    float:left;
+    width:250px;
+    margin:30px;
+    border:1px solid #F00;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+#zonadestino {
+    float:left;
+    width:550px;  
+    height:400px;
+    margin:100px;
+    border:1px solid #00F;
+}

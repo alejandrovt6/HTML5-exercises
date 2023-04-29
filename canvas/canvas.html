@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Canvas</title>
+
+<style>
+    #lienzo{
+        background-color: #8c2323;
+    }
+    section {
+        width:500px;
+        position:relative;
+        margin:auto;
+    }
+</style>
+
+<script>
+    function comenzar(){
+        var elemento=document.getElementById("lienzo");
+        lienzo=elemento.getContext("2d");
+        lienzo.fillStyle="blue"; // Color contorno
+        lienzo.globalAlpha=0.5; // Transparencia
+        lienzo.fillRect(110,110,100,100); // Con contorno
+        lienzo.strokeStyle="magenta"; // Color borde
+        lienzo.strokeRect(200,200,100,100); // Solo bordes
+        lienzo.clearRect(120,120,50,50); // Borra
+    }
+    window.addEventListener("load", comenzar, false);
+</script>
+
+</head>
+<body>
+
+    <section id="dibujo">
+        <canvas id="lienzo" width="500" height="300">
+
+        </canvas>
+    </section>
+    
+</body>
+</html>

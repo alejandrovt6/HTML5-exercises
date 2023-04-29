@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularios</title>
+</head>
+<body>
+
+    <section>
+        <form name="miform" id="miform" method="get">
+            Email:&nbsp<input type="email" name="texto" id="texto" placeholder="tu email" autocomplete="on" required autofocus>
+            <!--Autocomplete="on/off": ofrece sugerencias-->
+            Buscar:&nbsp<input type="search" name="buscar" id="buscar"><br><br>
+            Url:&nbsp<input type="url" name="url" id="url">
+            Edad:&nbsp<input type="number" name="edad" id="edad" min="0" max="100"><br><br>
+            <!--Step="x": cuenta en saltos-->
+            Rango:&nbsp<input type="range" name="rango" id="rango" min="1" max="20">
+            Fecha:&nbsp<input type="date" name="fecha" id="fecha"><br><br>
+            CP:&nbsp<input pattern="[0-9]{5}" name="cp" id="cp" placeholder="5 dígitos"><br><br>
+            <!--Pattern: [rango]{nº}-->
+            <input type="submit" value="Enviar"><br><br>
+        </form>
+    </section>
+    <img src="../img/1.jpg" width="200" height="200"><br><br>
+    Nombre:&nbsp<input type="text" name="nombre" id="nombre" form="miform">
+
+</body>
+</html>
